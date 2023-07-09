@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Agency Website</title>
+  <style>
+    /* Add some basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .navbar-brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar-menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-menu li {
+      margin-right: 20px;
+    }
+
+    .navbar-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .navbar-menu a:hover {
+      color: #eaeaea;
+    }
+
+    .navbar-search {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      border: none;
+      padding: 6px 8px;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .search-button {
+      background-color: #fff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .login-button {
+      background-color: yellow;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    .hero-image {
+      width: 50%;
+    }
+
+    .hero-text {
+      width: 50%;
+      padding: 0 20px;
+    }
+
+    .feature-section {
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+      background-color: #f9f9f9;
+    }
+
+    .feature {
+      flex: 1;
+      text-align: center;
+      margin: 0 20px;
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .feature-description {
+      font-size: 16px;
+    }
+
+    .book-now {
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+      background-color: #fff;
+    }
+
+    .book-now-button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .itinerary-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px;
+      background-color: #f9f9f9;
+    }
+
+    .itinerary-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .itinerary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .itinerary-item {
+      margin-bottom: 10px;
+    }
+
+    .real-time-updates-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px;
+      background-color: #fff;
+    }
+
+    .real-time-updates-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .real-time-updates-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .real-time-updates-item {
+      margin-bottom: 10px;
+    }
+
+    .language-support-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px;
+      background-color: #f9f9f9;
+    }
+
+    .language-support-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .language-support-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .language-support-input {
+      margin-bottom: 10px;
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 300px;
+    }
+
+    .language-support-submit {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .language-support-result {
+      margin-top: 20px;
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    .settings-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px;
+      background-color: #fff;
+    }
+
+    .settings-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .settings-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .settings-input {
+      margin-bottom: 10px;
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 300px;
+    }
+
+    .settings-submit {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-brand">TRAVELA</div>
+    <ul class="navbar-menu">
+      <li class="navbar-search">
+        <input type="text" class="search-input" placeholder="Search">
+        <button class="search-button" type="submit">Search</button>
+      </li>
+      <li>
+        <button class="login-button">Login</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="hero">
+    <img class="hero-image" src="https://img.freepik.com/free-vector/car-driving-concept-illustration_114360-8001.jpg?w=740&t=st=1688740585~exp=1688741185~hmac=53402d5daef828b13e1c9aac75519b681a3d95d745a3c0a8d1e9f09328ea0682" alt="Hero Image">
+    <div class="hero-text">
+      <h1>Welcome to Travela</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse hendrerit nisl eu quam ultrices, non vulputate elit congue. Curabitur nec metus in ipsum efficitur convallis. Nam lacinia, metus a rutrum pretium, ligula nisi feugiat elit, vel volutpat velit tellus a nulla.</p>
+    </div>
+  </div>
+
+  <div class="feature-section">
+    <div class="feature">
+      <i class="feature-icon">✈️</i>
+      <h2 class="feature-title">Explore</h2>
+      <p class="feature-description">Discover new destinations and plan your dream vacation.</p>
+    </div>
+    <div class="feature">
+      <i class="feature-icon">🏨</i>
+      <h2 class="feature-title">Accommodations</h2>
+      <p class="feature-description">Find the perfect place to stay during your trip.</p>
+    </div>
+    <div class="feature">
+      <i class="feature-icon">🌴</i>
+      <h2 class="feature-title">Relax</h2>
+      <p class="feature-description">Unwind and enjoy the beauty of nature in tranquil surroundings.</p>
+    </div>
+    <div class="feature">
+      <i class="feature-icon">📚</i>
+      <h2 class="feature-title">Book Now</h2>
+      <p class="feature-description">Instantly reserve your desired travel options with our easy booking process.</p>
+    </div>
+  </div>
+
+  <div class="book-now">
+    <button class="book-now-button">Book Now</button>
+  </div>
+
+  <div class="itinerary-container">
+    <h2 class="itinerary-title">My Itinerary</h2>
+    <ul class="itinerary-list">
+      <li class="itinerary-item">Day 1: Explore City X</li>
+      <li class="itinerary-item">Day 2: Visit Museum Y</li>
+      <li class="itinerary-item">Day 3: Enjoy Beach Z</li>
+    </ul>
+  </div>
+
+  <div class="real-time-updates-container">
+    <h2 class="real-time-updates-title">Real-time Travel Updates</h2>
+    <ul class="real-time-updates-list">
+      <li class="real-time-updates-item">Flight XYZ delayed by 1 hour</li>
+      <li class="real-time-updates-item">Gate change for Flight ABC</li>
+      <li class="real-time-updates-item">Alternative routes due to road construction</li>
+    </ul>
+  </div>
+
+  <div class="language-support-container">
+    <h2 class="language-support-title">Language Support</h2>
+    <div class="language-support-form">
+      <input type="text" class="language-support-input" placeholder="Enter phrase or keyword">
+      <button class="language-support-submit">Translate</button>
+    </div>
+    <div class="language-support-result">
+      Translated phrase or language assistance will appear here.
+    </div>
+  </div>
+
+  <div class="settings-container">
+    <h2 class="settings-title">Account Settings</h2>
+    <div class="settings-form">
+      <input type="text" class="settings-input" placeholder="Name">
+      <input type="email" class="settings-input" placeholder="Email">
+      <input type="password" class="settings-input" placeholder="Password">
+      <button class="settings-submit">Save Changes</button>
+    </div>
+  </div>
+
+</body>
+</html>
+<!-- ... previous code ... -->
+
+<div class="hero">
+  <!-- hero content -->
+</div>
+
+<!-- Add a section for user preferences -->
+<div class="user-preferences-container">
+  <h2 class="user-preferences-title">User Preferences</h2>
+  <div class="user-preferences-form">
+    <label for="destination">Destination Preferences:</label>
+    <input type="text" id="destination" class="user-preferences-input" placeholder="Enter desired destinations">
+
+    <label for="accommodation">Accommodation Preferences:</label>
+    <select id="accommodation" class="user-preferences-input">
+      <option value="">Select an option</option>
+      <option value="hotel">Hotel</option>
+      <option value="hostel">Hostel</option>
+      <option value="vacation-rental">Vacation Rental</option>
+    </select>
+
+    <label for="attractions">Attraction Preferences:</label>
+    <div id="attractions" class="user-preferences-checkboxes">
+      <input type="checkbox" id="historical-sites" value="historical-sites">
+      <label for="historical-sites">Historical Sites</label><br>
+      
+      <input type="checkbox" id="museums" value="museums">
+      <label for="museums">Museums</label><br>
+      
+      <input type="checkbox" id="outdoor-activities" value="outdoor-activities">
+      <label for="outdoor-activities">Outdoor Activities</label><br>
+      
+      <input type="checkbox" id="nightlife" value="nightlife">
+      <label for="nightlife">Nightlife</label><br>
+    </div>
+
+    <label for="dining">Dining Preferences:</label>
+    <div id="dining" class="user-preferences-checkboxes">
+      <input type="checkbox" id="italian-cuisine" value="italian-cuisine">
+      <label for="italian-cuisine">Italian Cuisine</label><br>
+      
+      <input type="checkbox" id="asian-cuisine" value="asian-cuisine">
+      <label for="asian-cuisine">Asian Cuisine</label><br>
+      
+      <input type="checkbox" id="mexican-cuisine" value="mexican-cuisine">
+      <label for="mexican-cuisine">Mexican Cuisine</label><br>
+    </div>
+
+    <label for="travel-dates">Travel Dates:</label>
+    <input type="text" id="travel-dates" class="user-preferences-input" placeholder="Enter travel dates">
+
+    <label for="budget-range">Budget Range:</label>
+    <input type="range" id="budget-range" class="user-preferences-input" min="0" max="1000" step="10">
+    <span id="budget-value">0</span>
+
+    <button class="user-preferences-submit">Save Preferences</button>
+  </div>
+</div>
+
+<!-- ... remaining code ... -->
+
